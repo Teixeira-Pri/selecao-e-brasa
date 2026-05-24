@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cardápio digital da Seleção & Brasa — Boutique de Carnes Premium em Salto, SP. Explore nossa seleção exclusiva de carnes nobres, vinhos, geleias artesanais e muito mais.">
+    <title>Cardápio | Seleção & Brasa — Boutique de Carnes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIÁVEIS ===== */
+        :root {
+            --marrom:   #4A2A1B;
+            --terracota:#A95427;
+            --bege:     #F7EFE6;
+            --bege-md:  #EDE0D0;
+            --ouro:     #C9A96E;
+            --texto:    #2C1810;
+            --texto-md: #5A3D2B;
+            --branco:   #FFFFFF;
+            --sombra:   rgba(74,42,27,0.14);
+        }
+
+        /* ===== RESET ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lato', Georgia, sans-serif;
+            background: var(--bege);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(160deg, #2A1508 0%, var(--marrom) 55%, #3A1E10 100%);
+            color: var(--bege);
+            text-align: center;
+            padding: 3.5rem 1.5rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.06'%3E%3Cpath d='M26 0l4 8h-8zM26 52l4-8h-8zM0 26l8 4V22zM52 26l-8 4V22zM13 13l5 5-5 5-5-5zM39 13l5 5-5 5-5-5zM13 39l5 5-5 5-5-5zM39 39l5 5-5 5-5-5z'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .header-inner {
+            position: relative; z-index: 1;
+            max-width: 800px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: center;
+            gap: 2rem; flex-wrap: wrap;
+        }
+        .logo {
+            width: 130px; height: 130px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 3px solid var(--ouro);
+            padding: 6px;
+            background: rgba(255,255,255,0.04);
+            flex-shrink: 0;
+        }
+        .header-text h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            color: var(--ouro);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+        }
+        .tagline {
+            font-size: 0.78rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--bege);
+            opacity: 0.8;
+            margin-top: 0.3rem;
+        }
+        .header-sub {
+            position: relative; z-index: 1;
+            margin-top: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--ouro);
+            opacity: 0.88;
+        }
+        .hline {
+            width: 70px; height: 1px;
+            background: var(--ouro);
+            margin: 1.1rem auto 0;
+            opacity: 0.55;
+        }
+
+        /* ===== NAV ===== */
+        nav#menu-nav {
+            background: var(--marrom);
+            position: sticky; top: 0; z-index: 200;
+            border-bottom: 2px solid var(--terracota);
+            box-shadow: 0 3px 14px rgba(0,0,0,0.28);
+        }
+        .nav-list {
+            max-width: 1400px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: center;
+            overflow-x: auto; scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .nav-list::-webkit-scrollbar { display: none; }
+        nav#menu-nav a {
+            color: var(--bege);
+            font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 1.8px; text-transform: uppercase;
+            padding: 1rem 1.15rem;
+            display: block; white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: color .25s, border-color .25s, background .25s;
+        }
+        nav#menu-nav a:hover {
+            color: var(--ouro);
+            border-bottom-color: var(--ouro);
+            background: rgba(201,169,110,0.1);
+        }
+
+        /* ===== MAIN ===== */
+        main { max-width: 1400px; margin: 0 auto; padding: 0 1.25rem; }
+
+        /* ===== SECTION ===== */
+        .sec {
+            padding: 4.5rem 0 3.5rem;
+            border-bottom: 1px solid var(--bege-md);
+            scroll-margin-top: 56px;
+        }
+        .sec:last-child { border-bottom: none; }
+
+        .sec-header { text-align: center; margin-bottom: 3rem; }
+        .sec-badge {
+            display: inline-block;
+            font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--terracota); margin-bottom: 0.6rem;
+        }
+        .sec-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-weight: 700; color: var(--marrom);
+            margin-bottom: 0.75rem;
+        }
+        .sec-header p {
+            font-size: 0.97rem; color: var(--texto-md);
+            font-style: italic; max-width: 580px; margin: 0 auto;
+        }
+        .ornament {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.9rem; margin: 1rem auto 0; max-width: 220px;
+        }
+        .ornament::before, .ornament::after {
+            content: ''; flex: 1; height: 1px;
+            background: var(--terracota); opacity: 0.45;
+        }
+        .ornament span { color: var(--terracota); font-size: 0.85rem; }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.4rem;
+        }
+        @media (min-width: 640px)  { .grid { grid-template-columns: repeat(2, 1fr); gap: 1.6rem; } }
+        @media (min-width: 900px)  { .grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1200px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+        /* ===== CARD ===== */
+        .card {
+            background: var(--branco);
+            border-radius: 10px; overflow: hidden;
+            box-shadow: 0 2px 14px var(--sombra);
+            display: flex; flex-direction: column;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 32px rgba(74,42,27,0.21);
+        }
+        .card-img {
+            position: relative; overflow: hidden;
+            height: 195px;
+        }
+        @media (min-width: 1200px) { .card-img { height: 210px; } }
+        .card-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+        .card:hover .card-img img { transform: scale(1.07); }
+        .card-img::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0; height: 55px;
+            background: linear-gradient(transparent, rgba(74,42,27,0.28));
+            pointer-events: none;
+        }
+        .card-body {
+            padding: 1.1rem 1.1rem 1.3rem;
+            flex: 1; display: flex; flex-direction: column;
+            border-top: 3px solid var(--terracota);
+        }
+        .card-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem; font-weight: 600;
+            color: var(--marrom); margin-bottom: 0.45rem;
+            line-height: 1.3;
+        }
+        .card-desc {
+            font-size: 0.81rem; color: var(--texto-md);
+            line-height: 1.58; flex: 1;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(160deg, #2A1508 0%, var(--marrom) 100%);
+            color: var(--bege);
+            padding: 3.5rem 1.5rem 2.5rem;
+            margin-top: 2rem;
+        }
+        .footer-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+        .footer-logo {
+            width: 85px; height: 85px; object-fit: contain;
+            border-radius: 50%; border: 2px solid var(--ouro);
+            padding: 6px; margin: 0 auto 1.4rem;
+        }
+        .footer-inner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem; color: var(--ouro); margin-bottom: 0.3rem;
+        }
+        .footer-sub {
+            font-size: 0.72rem; letter-spacing: 4px;
+            text-transform: uppercase; opacity: 0.65; margin-bottom: 2rem;
+        }
+        .footer-contacts {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 2rem; margin-bottom: 2rem;
+        }
+        .contact-item { display: flex; flex-direction: column; gap: 0.25rem; }
+        .contact-label {
+            font-size: 0.65rem; text-transform: uppercase;
+            letter-spacing: 2.5px; color: var(--ouro); opacity: 0.75;
+        }
+        .contact-value { font-size: 0.93rem; }
+        .fline { width: 55px; height: 1px; background: var(--ouro); margin: 0 auto 1.4rem; opacity: 0.4; }
+        .footer-copy { font-size: 0.72rem; opacity: 0.45; }
+
+        /* ===== BOTÃO WHATSAPP (FIXO) ===== */
+        .btn-wa {
+            position: fixed; bottom: 1.4rem; right: 1.4rem;
+            background: #25D366; color: #fff;
+            border-radius: 50px; padding: 0.75rem 1.3rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            font-weight: 700; font-size: 0.82rem;
+            box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+            z-index: 999;
+            transition: background .25s, transform .25s, box-shadow .25s;
+        }
+        .btn-wa:hover {
+            background: #1da855;
+            transform: scale(1.05);
+            box-shadow: 0 6px 22px rgba(29,168,85,0.5);
+        }
+        .btn-wa svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+
+        /* ===== BOTÃO TOPO (FIXO) ===== */
+        .btn-top {
+            position: fixed; bottom: 1.4rem; left: 1.4rem;
+            background: var(--marrom); color: var(--ouro);
+            border: 1px solid var(--ouro); border-radius: 50%;
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; opacity: 0.8;
+            z-index: 999;
+            transition: opacity .25s, background .25s;
+        }
+        .btn-top:hover { opacity: 1; background: var(--terracota); border-color: var(--terracota); }
+
+        /* ===== MOBILE PEQUENO ===== */
+        @media (max-width: 430px) {
+            .header-inner { flex-direction: column; gap: 1rem; }
+            .logo { width: 95px; height: 95px; }
+            .card-img { height: 155px; }
+            .card-name { font-size: 0.88rem; }
+            .card-desc { font-size: 0.77rem; }
+            nav#menu-nav a { font-size: 0.7rem; padding: 0.8rem 0.85rem; }
+            .btn-wa span { display: none; }
+            .btn-wa { padding: 0.75rem; border-radius: 50%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════
+     HEADER
+══════════════════════════ -->
+<header>
+    <div class="header-inner">
+        <img src="logo/logo.png"
+             alt="Logotipo da Seleção e Brasa — Boutique de Carnes Premium, Salto SP"
+             class="logo">
+        <div class="header-text">
+            <h1>Seleção &amp; Brasa</h1>
+            <p class="tagline">Boutique de Carnes</p>
+        </div>
+    </div>
+    <p class="header-sub">Cortes selecionados e experiências especiais</p>
+    <div class="hline"></div>
+</header>
+
+<!-- ══════════════════════════
+     NAVEGAÇÃO
+══════════════════════════ -->
+<nav id="menu-nav" aria-label="Categorias do cardápio">
+    <div class="nav-list">
+        <a href="#carnes">Carnes &amp; Aves</a>
+        <a href="#risottos">Risottos</a>
+        <a href="#massas">Massas</a>
+        <a href="#geleias">Geleias</a>
+        <a href="#pimentas">Pimentas</a>
+        <a href="#vinhos">Vinhos</a>
+        <a href="#bebidas">Bebidas</a>
+    </div>
+</nav>
+
+<!-- ══════════════════════════
+     CONTEÚDO PRINCIPAL
+══════════════════════════ -->
+<main id="topo">
+
+    <!-- ── CARNES, AVES & SUÍNOS ── -->
+    <section class="sec" id="carnes" aria-labelledby="h-carnes">
+        <div class="sec-header">
+            <span class="sec-badge">Seleção Premium</span>
+            <h2 id="h-carnes">Carnes, Aves &amp; Suínos</h2>
+            <p>Proteínas nobres escolhidas a dedo para o churrasco mais memorável da sua vida</p>
+            <div class="ornament"><span>✦</span></div>
+        </div>
+        <div class="grid" role="list">
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="carne_aves_suino/ave/suino/Costelinha%20de%20Porco.png"
+                         alt="Costelinha de Porco suculenta, corte artesanal com carne que desmancha, perfeita para churrasco lento na brasa">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Costelinha de Porco</h3>
+                    <p class="card-desc">Costelas de corte artesanal com carne que desmancha a cada mordida. Sabor defumado e textura irresistível que fazem desta peça a rainha de qualquer churrasqueira.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="carne_aves_suino/ave/suino/Panceta%20E%20Barriga%20de%20Porco.png"
+                         alt="Panceta e Barriga de Porco, corte nobre suíno com camadas perfeitas de carne e gordura para sabor intenso e profundo">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Panceta &amp; Barriga de Porco</h3>
+                    <p class="card-desc">Corte nobre com camadas generosas de carne e gordura em harmonia perfeita. Sabor intenso e profundo que eleva qualquer receita — do assado lento ao churrasco rápido na grelha.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="carne_aves_suino/ave/suino/linguica.png"
+                         alt="Linguiça Artesanal temperada com especiarias selecionadas e carnes nobres, suculenta e aromática na grelha">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Linguiça Artesanal</h3>
+                    <p class="card-desc">Produzida com temperos artesanais e carnes cuidadosamente selecionadas. O aroma que sobe da grelha já conquista — o sabor confirma que esta é a linguiça que todos vão pedir.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="carne_aves_suino/ave/suino/frango.png"
+                         alt="Frango Caipira inteiro criado solto com sabor marcante e textura firme, superior ao frango convencional">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Frango Caipira</h3>
+                    <p class="card-desc">Criado solto, com sabor marcante e textura firme que só o frango caipira oferece. A escolha autêntica de quem valoriza qualidade real — surpreende até o paladar mais exigente.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="carne_aves_suino/ave/suino/queijo.jpg"
+                         alt="Queijo Artesanal Selecionado de origem controlada, harmoniza com carnes nobres e vinhos premium da boutique">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Queijo Artesanal Selecionado</h3>
+                    <p class="card-desc">Queijos de origem controlada e produção artesanal, escolhidos para harmonizar com perfeição nossas carnes e vinhos. Um toque de sofisticação que transforma qualquer tábua em obra de arte.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="carne_aves_suino/ave/suino/coracao_galinha.png"
+                         alt="Coração de Galinha temperado com maestria, iguaria clássica brasileira crocante por fora e suculento por dentro na grelha">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Coração de Galinha</h3>
+                    <p class="card-desc">A mais querida iguaria do churrasco brasileiro, temperada com maestria. Crocante por fora, suculento por dentro — o petisco que some primeiro e deixa todos querendo mais.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ── RISOTTOS ── -->
+    <section class="sec" id="risottos" aria-labelledby="h-risottos">
+        <div class="sec-header">
+            <span class="sec-badge">Gastronomia Italiana</span>
+            <h2 id="h-risottos">Risottos</h2>
+            <p>Receitas autênticas com arroz arbóreo premium — a Itália no seu prato</p>
+            <div class="ornament"><span>✦</span></div>
+        </div>
+        <div class="grid" role="list">
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="risotto/Il%20cuoco_risotto_ai_porri.png"
+                         alt="Risoto ai Porri Il Cuoco, cremoso risoto italiano com alho-poró caramelizado de sabor suave e sofisticado">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Risoto ai Porri</h3>
+                    <p class="card-desc">Cremoso e reconfortante, com alho-poró caramelizado que traz uma doçura elegante ao prato. Um equilíbrio sofisticado entre suavidade e profundidade de sabor que aquece a alma.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="risotto/Il%20cuoco_risotto_al_limone_siciliano.png"
+                         alt="Risoto al Limone Siciliano Il Cuoco, risoto refrescante com limão siciliano autêntico e textura aveludada">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Risoto al Limone Siciliano</h3>
+                    <p class="card-desc">A frescura vibrante do limão siciliano transforma cada garfada em uma experiência única. Cremoso, aromático e refrescante — a essência da Sicília servida diretamente no seu prato.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="risotto/Il%20cuoco_risotto_al_pomodoro.png"
+                         alt="Risoto al Pomodoro Il Cuoco, risoto vibrante com tomates selecionados e arroz arbóreo de cor marcante">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Risoto al Pomodoro</h3>
+                    <p class="card-desc">Tomates selecionados e arroz arbóreo premium em perfeita harmonia italiana. Sabor vibrante, cor marcante e textura aveludada que remetem à mais autêntica tradição culinária do sul da Itália.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="risotto/Il%20cuoco_risotto_alle_funghi.png"
+                         alt="Risoto alle Funghi Il Cuoco, risoto terroso e aromático com cogumelos nobres e arroz arbóreo aveludado">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Risoto alle Funghi</h3>
+                    <p class="card-desc">Cogumelos nobres e arroz arbóreo em combinação terrosa e profundamente aromática. Textura aveludada, sabor que remete às florestas italianas — uma experiência verdadeiramente memorável.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ── MASSAS ── -->
+    <section class="sec" id="massas" aria-labelledby="h-massas">
+        <div class="sec-header">
+            <span class="sec-badge">Tradição ao Ponto Al Dente</span>
+            <h2 id="h-massas">Massas</h2>
+            <p>As melhores marcas italianas, selecionadas para um resultado impecável e irresistível</p>
+            <div class="ornament"><span>✦</span></div>
+        </div>
+        <div class="grid" role="list">
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="massas/barilla_casarecce_n87.png"
+                         alt="Barilla Casarecce número 87, massa italiana torcida que captura molhos encorpados de forma extraordinária">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Barilla Casarecce N.87</h3>
+                    <p class="card-desc">O formato torcido captura molhos encorpados de forma extraordinária, garantindo cada garfada repleta de sabor. A escolha de quem quer impressionar com o que tem de melhor na culinária italiana.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="massas/barilla_fusilli_bucati_corti_n292.png"
+                         alt="Barilla Fusilli Bucati Corti número 292, espiral tubular que abraça molhos por dentro e por fora">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Barilla Fusilli Bucati Corti N.292</h3>
+                    <p class="card-desc">O espiral tubular que abraça o molho por dentro e por fora — cada mordida entrega uma explosão de sabor completa. Textura al dente perfeita que Barilla aperfeiçoou ao longo de décadas.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="massas/barilla_farfalle_n_65.png"
+                         alt="Barilla Farfalle número 65, massa borboleta elegante ideal para saladas especiais e molhos cremosos delicados">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Barilla Farfalle N.65</h3>
+                    <p class="card-desc">O elegante formato de gravata-borboleta que transforma qualquer prato em uma apresentação gastronômica impecável. Perfeita para molhos cremosos, pestos frescos e saladas de destaque.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="massas/spaghetti_san_marino.png"
+                         alt="Spaghetti San Marino, macarrão longo com textura firme e cozimento al dente perfeito para receitas clássicas italianas">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Spaghetti San Marino</h3>
+                    <p class="card-desc">Fios longos e elegantes com textura firme e al dente impecável. A base ideal para as mais clássicas receitas italianas — do bolonhesa tradicional à carbonara que faz sucesso garantido.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="carne_aves_suino/ave/suino/parpadelle_san_marino.png"
+                         alt="Pappardelle San Marino, largas fitas de massa premium que abraçam ragùs e molhos encorpados com elegância italiana">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Pappardelle San Marino</h3>
+                    <p class="card-desc">Largas e sedosas fitas de massa que abraçam ragùs e molhos encorpados com elegância incomparável. A escolha perfeita para pratos robustos que conquistam à primeira garfada e ficam na memória.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ── GELEIAS ── -->
+    <section class="sec" id="geleias" aria-labelledby="h-geleias">
+        <div class="sec-header">
+            <span class="sec-badge">Sabores Artesanais</span>
+            <h2 id="h-geleias">Geleias Especiais</h2>
+            <p>Combinações frutadas exclusivas que elevam queijos, frios e tábuas ao próximo nível</p>
+            <div class="ornament"><span>✦</span></div>
+        </div>
+        <div class="grid" role="list">
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="geleia/amora%20com%20laranja%20e%20tamara.png"
+                         alt="Geleia Artesanal de Amora com Laranja e Tâmara, combinação agridoce exótica perfeita para harmonizar com queijos premium e frios">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Geleia de Amora, Laranja &amp; Tâmara</h3>
+                    <p class="card-desc">A intensidade da amora encontra a elegância cítrica da laranja e a doçura exótica da tâmara. Uma criação artesanal que transforma qualquer tábua de queijos em uma verdadeira obra de arte gastronômica.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="geleia/morango%20com%20tamara.png"
+                         alt="Geleia Artesanal de Morango com Tâmara, combinação agridoce refinada que complementa queijos premium e frios selecionados">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Geleia de Morango &amp; Tâmara</h3>
+                    <p class="card-desc">Morangos maduros e tâmaras em uma combinação agridoce que desperta os sentidos a cada colherada. Complemento perfeito para queijos premium e tábuas de frios que impressionam seus convidados.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="geleia/damasco%20c%20laranja%20e%20amendoas.png"
+                         alt="Geleia Artesanal de Damasco com Laranja e Amêndoas, geleia gourmet com textura crocante e sabor sofisticado e aromático">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Geleia de Damasco, Laranja &amp; Amêndoas</h3>
+                    <p class="card-desc">A delicadeza do damasco com notas cítricas frescas e o crocante surpreendente das amêndoas. Uma experiência gustativa sem igual — sofisticada, aromática e inconfundivelmente especial a cada mordida.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="geleia/lichia%20com%20maca.png"
+                         alt="Geleia Artesanal de Lichia com Maçã, geleia exótica com sabor floral e refrescante de frutas tropicais selecionadas">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Geleia de Lichia &amp; Maçã</h3>
+                    <p class="card-desc">A exuberância floral da lichia em perfeita harmonia com a frescura da maçã. Uma descoberta para paladares aventureiros que buscam o extraordinário em cada colherada — sabor único e refrescante.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ── PIMENTAS ── -->
+    <section class="sec" id="pimentas" aria-labelledby="h-pimentas">
+        <div class="sec-header">
+            <span class="sec-badge">Para os Corajosos do Sabor</span>
+            <h2 id="h-pimentas">Pimentas Especiais</h2>
+            <p>Coleção exclusiva de pimentas artesanais que transformam qualquer prato em experiência</p>
+            <div class="ornament"><span>✦</span></div>
+        </div>
+        <div class="grid" role="list">
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="pimentas/Pimenta_Quitango.png"
+                         alt="Pimenta Quitango artesanal de origem africana, com ardência progressiva e sabor exótico e marcante">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Pimenta Quitango</h3>
+                    <p class="card-desc">Originária da África, com ardência que cresce elegantemente no paladar e sabor exótico incomparável. Transforma qualquer prato em uma experiência inesquecível, autêntica e vibrante.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="pimentas/Pimenta_Piri_Extra_Forte.png"
+                         alt="Pimenta Piri Piri Extra Forte, ardência intensa para apreciadores de sabores marcantes e picantes autênticos">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Pimenta Piri Extra Forte</h3>
+                    <p class="card-desc">Para os verdadeiros apreciadores de intensidade. Ardência vibrante e sabor autêntico que elevam qualquer preparo com personalidade marcante — não para os fracos de coração, mas para os corajosos do sabor.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="pimentas/Pimenta_American_wings.png"
+                         alt="Pimenta American Wings com toque defumado e ardência equilibrada, criada para potencializar asas e carnes de aves grelhadas">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Pimenta American Wings</h3>
+                    <p class="card-desc">Calor intenso encontra sabor defumado nesta criação especial para asas e carnes de aves. O segredo das wings perfeitas que todos provam e imediatamente perguntam: onde posso comprar mais?</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="pimentas/Pimenta_PIRI_ESPECIAL_FRANGO.png"
+                         alt="Pimenta Piri Especial Frango, molho desenvolvido para harmonizar perfeitamente com frango ao estilo português autêntico">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Pimenta Piri Especial Frango</h3>
+                    <p class="card-desc">Desenvolvida para harmonizar com frango, trazendo o sabor autêntico da culinária portuguesa. A escolha dos chefs para frango grelhado que desperta admiração e garante que ninguém recuse uma segunda porção.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="pimentas/Pimenta_Jindungo_em_whisky.png"
+                         alt="Pimenta Jindungo macerada em Whisky, criação exclusiva que combina ardência exótica com notas amadeiradas e sofisticadas">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Pimenta Jindungo em Whisky</h3>
+                    <p class="card-desc">Criação exclusiva e ousada: a ardência do jindungo suavizada e enriquecida pelas notas amadeiradas do whisky. Uma harmonização inusitada que encanta paladares sofisticados e aventureiros em igual medida.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ── VINHOS ── -->
+    <section class="sec" id="vinhos" aria-labelledby="h-vinhos">
+        <div class="sec-header">
+            <span class="sec-badge">Cave Selecionada</span>
+            <h2 id="h-vinhos">Vinhos</h2>
+            <p>Rótulos cuidadosamente escolhidos para a perfeita harmonia com nossas carnes nobres</p>
+            <div class="ornament"><span>✦</span></div>
+        </div>
+        <div class="grid" role="list">
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="vinhos/vinho_ea.png"
+                         alt="Vinho EA, vinho elegante e encorpado com aromas complexos que se revelam gradualmente e complementam cortes nobres">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Vinho EA</h3>
+                    <p class="card-desc">Elegante e encorpado, com aromas complexos que se revelam gradualmente na taça. Taninos sedosos em harmonia perfeita com cortes nobres — uma parceria que confirma que boas escolhas combinam.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="vinhos/vinho_finca_amadeo.png"
+                         alt="Vinho Finca Amadeo produzido nos melhores terroirs, com estrutura elegante e notas frutadas de final longo e persistente">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Finca Amadeo</h3>
+                    <p class="card-desc">Produzido nos melhores terroirs, carrega a essência da vinicultura premium em cada gole. Estrutura elegante com notas frutadas e final longo que convida, inevitavelmente, a mais um cálice.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="vinhos/vinho_finca_amadeo2.png"
+                         alt="Vinho Finca Amadeo Reserva, edição especial com envelhecimento criterioso resultando em complexidade e profundidade únicas">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Finca Amadeo Reserva</h3>
+                    <p class="card-desc">Uma reserva especial de envelhecimento criterioso que resulta em complexidade, profundidade e elegância ímpares. Para os momentos que merecem ser celebrados com o melhor que a vinicultura tem a oferecer.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="vinhos/vinho_millaman.png"
+                         alt="Vinho Millaman, intenso e frutado com taninos bem estruturados que harmonizam magistralmente com cortes bovinos nobres">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Vinho Millaman</h3>
+                    <p class="card-desc">Intenso e frutado, com taninos bem estruturados que encontram sua expressão máxima ao lado de cortes bovinos de alta qualidade. A parceria ideal para quem leva o churrasco a sério.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="vinhos/vinho_cabaco.png"
+                         alt="Vinho Cabaço de produção limitada com caráter único e camadas de sabor que evoluem na taça revelando personalidade marcante">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Vinho Cabaço</h3>
+                    <p class="card-desc">De produção limitada, surpreende com caráter único e personalidade marcante. Camadas de sabor que evoluem magnificamente na taça — cada sorvo revela uma nova faceta deste rótulo especial.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="vinhos/vinho_luciano.png"
+                         alt="Vinho Luciano, sofisticado e equilibrado com final longo e persistente que encerra qualquer refeição com chave de ouro">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Vinho Luciano</h3>
+                    <p class="card-desc">Sofisticado e perfeitamente equilibrado, com final longo e persistente que convida a mais um gole. Uma experiência sensorial completa que encerra qualquer refeição com a mais elegante das chaves de ouro.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ── BEBIDAS ── -->
+    <section class="sec" id="bebidas" aria-labelledby="h-bebidas">
+        <div class="sec-header">
+            <span class="sec-badge">Para Refrescar</span>
+            <h2 id="h-bebidas">Bebidas</h2>
+            <p>Cervejas premium e bebidas selecionadas para completar sua experiência</p>
+            <div class="ornament"><span>✦</span></div>
+        </div>
+        <div class="grid" role="list">
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/Heineken.png"
+                         alt="Heineken cerveja premium holandesa com mais de 150 anos de tradição, sabor único e refrescante inconfundível">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Heineken</h3>
+                    <p class="card-desc">Mais de 150 anos de tradição holandesa em cada lata. Sabor único, refrescante e inconfundível — a cerveja premium que transforma qualquer momento ao redor da grelha em celebração.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/budweiser.png"
+                         alt="Budweiser The King of Beers cerveja americana com sabor suave e refrescante, harmoniza perfeitamente com carnes grelhadas">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Budweiser</h3>
+                    <p class="card-desc">The King of Beers — sabor suave, refrescante e inconfundível que conquistou o mundo inteiro. Harmoniza perfeitamente com carnes grelhadas e aqueles momentos que merecem ser vividos com intensidade.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/corona_extra.png"
+                         alt="Corona Extra cerveja mexicana premium com sabor leve e limpo, melhor apreciada gelada com um toque de limão">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Corona Extra</h3>
+                    <p class="card-desc">A cerveja mexicana mais famosa do mundo — sabor leve, limpo e genuinamente refrescante. Gelada com um toque de limão transforma qualquer tarde ensolarada em uma experiência tropical inesquecível.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/stella.png"
+                         alt="Stella Artois cerveja belga premium com tradição secular e sabor sofisticado, perfeita para acompanhar pratos nobres">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Stella Artois</h3>
+                    <p class="card-desc">A elegante cerveja belga com tradição secular e sabor sofisticado e bem equilibrado. Para acompanhar pratos nobres com a distinção que sua experiência gastronômica merece e você tanto aprecia.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/red%20bull.png"
+                         alt="Red Bull bebida energética com sabor único e estimulante, fornece energia e disposição para aproveitar cada momento">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Red Bull</h3>
+                    <p class="card-desc">A bebida energética mais famosa do mundo com sabor único e inconfundível. Para quem quer manter energia, disposição e foco — aproveite cada momento ao máximo, do início ao fim da festa.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/gatorade.png"
+                         alt="Gatorade bebida isotônica para reposição eficiente de eletrólitos, hidratação superior com sabor refrescante">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Gatorade</h3>
+                    <p class="card-desc">Reposição eficiente de eletrólitos com hidratação superior e sabor genuinamente refrescante. A companhia ideal para um dia de churrasco — mantém sua energia e disposição do primeiro ao último acender da brasa.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/refrigerantes%20litro.png"
+                         alt="Refrigerantes em garrafa de 1 litro nas melhores marcas, tamanho família para compartilhar momentos especiais">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Refrigerante 1 Litro</h3>
+                    <p class="card-desc">As melhores marcas em tamanho família, para compartilhar momentos especiais com quem você ama. Opções variadas que agradam a todos — porque em uma boa festa ninguém fica sem bebida na mão.</p>
+                </div>
+            </article>
+
+            <article class="card" role="listitem">
+                <div class="card-img">
+                    <img src="bebidas/refrigerante%20em%20lata.png"
+                         alt="Refrigerante em lata gelado, prático e refrescante para consumo individual nos melhores momentos">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Refrigerante em Lata</h3>
+                    <p class="card-desc">A praticidade de uma lata gelada com todo o sabor refrescante que você adora. Individual, conveniente e sempre na temperatura certa — o parceiro perfeito para os melhores momentos ao redor da mesa.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ══════════════════════════
+     RODAPÉ
+══════════════════════════ -->
+<footer>
+    <div class="footer-inner">
+        <img src="logo/logo.png"
+             alt="Logotipo Seleção e Brasa"
+             class="footer-logo">
+        <h3>Seleção &amp; Brasa</h3>
+        <p class="footer-sub">Boutique de Carnes</p>
+
+        <div class="footer-contacts">
+            <div class="contact-item">
+                <span class="contact-label">Endereço</span>
+                <span class="contact-value">Rua Rui Barbosa, 1187 — Centro, Salto (SP)</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">WhatsApp</span>
+                <span class="contact-value">(11) 97831-4003</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">E-mail</span>
+                <span class="contact-value">atendimento@selecaoebrasa.com.br</span>
+            </div>
+        </div>
+
+        <div class="fline"></div>
+        <p class="footer-copy">&copy; 2025 Seleção &amp; Brasa. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- ══════════════════════════
+     BOTÃO WHATSAPP FIXO
+══════════════════════════ -->
+<a href="https://wa.me/5511978314003"
+   class="btn-wa"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Entrar em contato pelo WhatsApp com a Seleção e Brasa">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>Pedir pelo WhatsApp</span>
+</a>
+
+<!-- ══════════════════════════
+     BOTÃO TOPO FIXO
+══════════════════════════ -->
+<a href="#topo" class="btn-top" aria-label="Voltar ao topo da página">↑</a>
+
+</body>
+</html>
