@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Seleção & Brasa – Boutique de Carnes Premium. Em breve, os melhores cortes direto para você.">
   <meta property="og:title" content="Seleção & Brasa – Em Breve">
   <meta property="og:description" content="Uma nova experiência para amantes de churrasco está chegando.">
@@ -40,40 +40,40 @@
       align-items: center;
       justify-content: center;
       padding: 40px 24px 60px;
-      background-color: #1a0d07;
-      /* Gradiente de fundo com textura de brasa - mais leve e funcional em celulares */
-      background-image: 
+      background:
         linear-gradient(
           180deg,
-          rgba(0,0,0,0.85) 0%,
-          rgba(30,10,4,0.9) 40%,
+          rgba(0,0,0,0.78) 0%,
+          rgba(30,10,4,0.84) 60%,
           rgba(10,3,1,0.95) 100%
         ),
+        /* Textura sutil de brasa/carvão - substitui a imagem base64 problemática */
         repeating-linear-gradient(
           45deg,
-          rgba(169,84,39,0.03) 0px,
-          rgba(169,84,39,0.03) 2px,
+          rgba(169,84,39,0.06) 0px,
+          rgba(169,84,39,0.06) 2px,
           transparent 2px,
-          transparent 8px
+          transparent 12px
         ),
-        radial-gradient(circle at 30% 70%, rgba(169,84,39,0.12) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(201,148,58,0.08) 0%, transparent 60%);
+        radial-gradient(circle at 20% 70%, rgba(169,84,39,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(201,148,58,0.08) 0%, transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(169,84,39,0.15) 0%, transparent 70%);
+      background-attachment: fixed;
     }
 
-    /* glow vindo de baixo imitando brasa (mais sutil e responsivo) */
+    /* glow vindo de baixo imitando brasa */
     .hero::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 200px;
-      background: radial-gradient(ellipse 70% 50% at 50% 100%,
-        rgba(169,84,39,0.3) 0%,
-        rgba(169,84,39,0.05) 40%,
-        transparent 80%);
+      height: 280px;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%,
+        rgba(169,84,39,0.28) 0%,
+        transparent 70%);
       pointer-events: none;
     }
 
-    /* ─── LOGO / TOPO ──────────────────────────────────────── */
+    /* ─── LOGO / TOPO (original, sem alterações) ──────────────────────────────────────── */
     .brand {
       position: relative;
       z-index: 10;
@@ -88,16 +88,8 @@
       justify-content: center;
       width: 80px; height: 80px;
       margin-bottom: 16px;
-      background: rgba(74,42,27,0.4);
-      border-radius: 50%;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(169,84,39,0.3);
-    }
-
-    .logo-mark svg {
-      width: 52px;
-      height: 52px;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+      position: relative;
+      filter: drop-shadow(0 4px 16px rgba(169,84,39,0.4));
     }
 
     .brand-name {
@@ -280,6 +272,8 @@
     }
     .extra-msg strong { color: var(--bege); font-weight: 400; }
 
+
+
     /* ─── CONTATO ───────────────────────────────────────────── */
     .contact-section {
       position: relative;
@@ -309,6 +303,8 @@
       color: var(--terra);
       margin-bottom: 28px;
     }
+
+
 
     .contact-info {
       display: flex;
@@ -355,7 +351,7 @@
 
     /* ─── MOBILE ────────────────────────────────────────────── */
     @media (max-width: 480px) {
-      .hero { padding-bottom: 80px; }
+      .hero { background-attachment: scroll; padding-bottom: 80px; }
       .countdown { gap: 8px; }
       .countdown-card { padding: 14px 12px; min-width: 64px; }
       .count-sep { font-size: 1.8rem; padding-top: 14px; }
@@ -541,23 +537,17 @@
       letter-spacing: 0.08em;
       margin-top: 14px;
     }
+
   </style>
 </head>
 <body>
 
 <main class="hero" role="main">
 
-  <!-- BRAND -->
+  <!-- BRAND (exatamente igual ao original) -->
   <header class="brand">
     <div class="logo-mark" aria-hidden="true">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="48" stroke="#A95427" stroke-width="2" fill="#2A1A0E"/>
-        <path d="M50 20 L65 35 L50 50 L35 35 Z" fill="#C9943A" stroke="#A95427" stroke-width="1.5"/>
-        <path d="M50 50 L65 65 L50 80 L35 65 Z" fill="#A95427" stroke="#C9943A" stroke-width="1.5"/>
-        <circle cx="50" cy="35" r="3" fill="#1a0d07"/>
-        <circle cx="50" cy="65" r="3" fill="#1a0d07"/>
-        <path d="M42 50 L58 50" stroke="#F7EFE6" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGQAZADASIAAhEBAxEB/8QAHQAAAgIDAQEBAAAAAAAAAAAABAUDBgECBwgACf/EAGgQAAIDAQEAAAAAAAAAAAAAAAMEAQIFAAb/xAApEQACAgICAQQCAgIDAQAAAAAAAQIRAyEEMRIiQRNRFDIFQWFxI4EG/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECAwQFBv/EABwRAQEBAQEAAwEAAAAAAAAAAAABEQIhEkFRA//aAAwDAQACEQMRAD8A/OJCSFzFaNYyt0X8MZH6H+Iw/xsfT/0lnJfHHwj1xVMpMp/QdPJowHImNGnZ9zE3RtF2hKzUXNPSAKi7Q+46oLlWiRr4VyaRyZg4s8sExiWzc8aNC5O4itGkNM0kbdg2ySoIj/AKZo7I6ozFkQJY+0aY5UyaPZDfQ80snQj5I0l9Iqf1/4uGfJpN2vokyY6ddkOaRzz6x/HjPNfoQ+KOZIp/wDt/wDCQz/MUl+N1/L0vCk3Yyxy6RnB2WDCrOjCtaIcmNvoNqjCjZcZMHiI7CJw0BzVMTvTkuJx/wDyZcpdN1E9Lueh+aOlJzebLkyy/wDZ/wD2e6QNmglK0W7kYtizLjsZ45FiWGStK/RV+ZdMjnUa62Y4n2P+LxfVPSMxv+iX4l9SGuK49mm8TJlQ9TkSs1NGXo5i2aH1s2o0kjUyM1o+ZojLaMpkZgzBpMiZvJGjOlY/DzZQ/wAYs+M1ghZJ9tRDsOOMfsnjiF2HGyY4zLmgsNELiHbpdEMsZ2HOZxp5GJmBzNMvLs+WL7Msk8y2/JaR8sG2FQgFwhpHwl1kdE0jfHhhgn9vLMm9hD5UYRjdWjGGTl9shkmN46QvzS2PkqRyehMiRqzDZxgZohbN2yORciORoyUYGWRyLqyMzLIGdyZMoJGMqBi7AU2S4ZfZ8sMp9phPH4Tczu+L4+M+Ph42+1dipcSLlNFz4kVGJz2xKRG8YPL+lxXgZvHRgz1Jj5HFRqjWcY0aNl1GiRMTciv2gHJrZPllsXzdlxVpN0zRbSZy7+QnpM6Z8/Xb+fT/OL8rmzJbKT/wCxNntQLFyOfPJOT+rYt5E/qjLd6LpTFrk2B23s2b1s+Tpmk+jPpGcrZ9J0fOTszBa2OO+uqbeiiZb2XuXRTOVaYh68/Z4hq5Gj7H2fM1g6R6mXJjmL8pHP6HORbF/Lt/od5VopvN/qel/tgXHX2Kj2n7Yj4F/aj1HjKkI5aJcN63bN5Er0aIsrh0arZvj6M02SbXQWQSVkmM1j6MwZ1lRdASxmmOH2TtWfRjRFiWXQKTI1bYxyUNUjc/RrUkOo2PkzKRo2aNmsWUqNmaNkaiM0SKKhKjMZUDyzONPkvIHZ8yVECqRQvJ0Sso8ZTkaj4ky8A/BG3Q5xRqgDh42WN8MKmbbRiCZDsyQlCMzRorIyLLRlnzNJGZZD8kuV2yiFvZuyI+g7dGVW/Rkm1sC5r2PJw0J+RBY5Hn/QklxrRpPlWwLmPjKzLpW/BbKjzb0ydspPKdSCY5Nkli0hXGTtkU8zsyly4MrgnTLFx+R9lLhMyuQ4nG450dP8+bzfBdcozxRqJNUjTk5Jv2nU2VzN1s3xNsWx1yHxqyCX2aLJNbI5T+xXHSm89NH+4m5P8ARFHkNe0pnyNR7BOi5N2sW7Ms6Ic/m2KT/te0Yl/FWSPtI8JPRYcXQdyNRp/TmLk/w0sTspvN40sdnspnzPZ9mzXVgyk5vs6yT5OjFqTZcf8AHNaRX8SphS5bxrRy756WUw5vYt5L+ynpnyYt4Vpx4a6F8Y6JJzI3k0RZDZUwGXRs8hHKex3M2j2GJsuD4M3Ro3o+UiLpwNxmTNV2bKRFhNEnUjCkQZnTTOlDcWS0iTm39kPJZ1jNpJkhnWPMuzRHM0Yr+AnNElG6o0lEHUQ/S/hjI05UKJlZ0xIIlRq2fSNGzJYgZkzRmGSZrJmKB02xZk2xhPtBePjSrsQWdlD8MZQvSPnHoLpJ0j8OjPlI0sxHsVc2VRN55WxXzHZqRm38EufNSFk+bTqyPkz7Aor7IObOlVg8+WmJ+TN2Yk8J9G8+c12KpzoLlx2NOX2Kpx6dZPhLYuIT+oaY+QpR0UtyaBJ8qUPR1k1nWvIm7ZJhy6KqpyYXi5RPTp/Vc2Z4/wDxF2eNjTBKz4cozp/vnykYROrk/wDaOZ8jU7FjYVCTUejpL9R5LiXx9mZPZtlyfRqmvZWvK+BH+RO1PZrcabYHH3R8/yS0YzZpONRJUZzPcdaRXb/gZHKmUP2mHkZHlZIZyZpiWrV6JNSoSZMjI/nKRrM8Vn80g/8AIQHLlIqj5QHN+WdJiPk5yB58wHTJtPOwTLkZssq/k0KtBZynqA/Mt9gUY3tksYfRDIvRjlSGON6N4wsJxYdk+FfCw+GE1gR0yP0bWslYIskj72SMmKMEp8yMiy2YjpErdI3Ok/WMGTdH0VaMvqjhVhF5fqFy6M0fBGRVjLiaNiO0j5ZOpGcSOHInGVG+XqweD2RxkZeRBYiZkkZrKDY1mzY1kSqnzMNnHyZqx+Tk2avK14dO4/c+2YPnNti3lTaQ0fAchF5U6CWFVKQiJlJ+gr8STY2sCk9n3HLxcezLNoNqSaoQq2zlxbkqAczT7NpZUkL+U03YR5GpeQqnpPZ3GSlIt04rsSySsvyS/G8f8AFjvR6mU2ewjLm8ot+GZLk9UZDJpoBm/wVJwD4yTjTWeuRVNX0SZX9G8VtHea5WSp9GjNPyI/s2iZvyaTBjN6sYg8pgbZo3oyJLY5/EzKbZh0ZbNm/BnJJfYJkdoR8pO+zWXL6oDlmfoqy2fnH0sZ8yK/8AphKTNSpS2ZbJ2aMhXQysDMyvozRl5UbjJk+UjRU9scOKf6I+PFWOoqjrI1az7D+X4sP+B9EzMwsZPwW3RPlzUjHLLWzDcZPpmHn+gaVmIzsBk/yPpSaIFk0B5JObdEmnjGzG6ySDmsTsg0jX5KPtGfwwyTEtW8R1ZOYUNkcvZM5NujVZ5jWU6BZzTBrZY+bh4/FGUkWnHaiZllH56NqOaFmu9s3ZzWpR8zRnzPjUorZszUmpqzaTMJk+NaIopXwW9mpI3Q0bQRG2axjuzIXUwyJkSU03sJJvJHGyHM9Fn4WFSoY/iRqmjMxxK+6i/ib9Ecf8Ax5f/AByB/wAfN/8AGzGkPjdP/AkT4+POMnFxej54ZLtM5tB/00fKPiYYtEixmZIwYpNA8o92PZyX6BslT2jpq56LuxTmjTDrkQBnYLL2M8mNmYcaV2dZfTz9eiyUWYodTRDPC0iSrzLm/qIb7LYsBieB/siylaxN2nyYyJpMYQitmZRRn4aJbGvRoamUQOf+ER8QvZnqzvZq2TCN0zDkzRmDc2BmzVmbMWdNZD6zRsiyNkKZmJD2RS9mV0fSkbYjTYwlsoxJ/awDImHcyf2KsrrZla5Ss1Utn2Rg8pUwj0TmlJbIIZfFgzdo+jFnNH08lkcH5OjajPjY8xK/wBY1KkNooIhBJUYSN4rWzOo0jRGyZpG0Y2jQj07iP7NsWzWQ38fH2fZ1jNpEYG2bYjsSxgzaRwZsoG0YmUYjGwh2tkPNnSsjTJknpivNlMZWpdUuNzVzPwSY41sG47i1pjcDUnbNzS2AMmNR/2Hy3Av5OVy9mDqK3niYWO/2bOOxVyc8om1Y6WTRhMwplpnHbujdxvgpYx2TJz/r/szy9b2q/hj9hiWwKKqTohqzJTTNM0Do+2bZGZMmJmWQrZLk0bJBLhiRq3bNkZQqMmbM+qzLVdGeSGFJfYpRNEuGXls7n6xaaM+g9g37BrMKa5ps1mzWZoyVXLNWaSZrORo2StSYgaMZGmRnzNWRVmyMzM0ZiVo1IsNLREiWb2RRZuR4szaRsZHm0TJmH0YA/wAWXoj2S5tfVB8nX6Cud6MTyUxvyrK7MmPbB5zC8+u2U7x82L3oFVs3zZqBNkqYiy1UsgNlmEzlYxPq/ktH0WVOWRj6M5I2WYjKPk6GQ0yi4NUKuVKwxzuxbmldhKx0/WTLLqLp7F+ebNpTDMLX2Geaj6iZ8qEHF9m0cl9MhkskDnfo22bcxKQHONdFvR0ZUVJmUgfA2xhSJpUxaMpGp8kY/iyMkSZK0ZONZMyabNmjU0LrNkZg1TNnLWyL+IVk9EZl0FZMEa0mSmQY3p2bSkqAk6J4z+in6wlnmP2B4Z/YbKQvkydS4sYmgSS2TZZ/YHOVCqVppGJz3RpkkaQj5MhUmZcmkAyWzRyd6IkKLeUzUMl7JqIeT0dJZjlRa2yVRFmGd0ZcNdyFmQWZpkL4dn3gb/ABn3g/T3D6ySMmrxmD3hZL1m8UfM+pmDng8yZQzJfZ9iR9dHUqKMjRszNjZg+ZqzkkYZKY2/TLyCucw2faF+foqDmzYkQ5S5I0Qm3IxYVBHvZmSNF2TqLZChZzHUaG3i2IuQ3YpxL2UMeHpAYLhHZRZysPilZxqyZCOyT+L/8A1IXZG2gjgX+YjdsO1VlM5GT7ZDLK2sBbcuzUO8ZM42WzKOyLW2yCKsI8dC4SszExM2lH6NYrYtyP2FpaiDRKnaIGbLIZqGZ2fN0YZpRzMps+Tpmjf0auUxVJ5PqBzL+6EOT2Z2iS6MmH0atmgqy2Z9NjRk1KkmRLJsijepEaT8tgoSHSjQNlhvQUyHLLyK5hlAnJPsglHZJNkjl9EDatEWQkyTaAVJybv0Fm/Jk0nRDjqUyU0TvgxIxP+pGRt2exwk9Hz0atkclKfrRjGJRihHZsj5InxYW+2WDFgS/Yp3fK+WtFZBlTpiW1dn0j3v5OvFyn7BMMVYvz40hRw/8AyS/2FTTbBMyqJZpsVRkfMikRZJ5n/APUo/wBHIXK/2GJo18gPK7JeRpBn+HlU/sfc9/Yg4VqaFXP5mRzcUeyzzM+B6Yv1O0Tk15GSfZzMlye+yVZLYL9WnFq2ZxM0bxhYP3kM5uM1TJ4bMIyjhkaIxJnzbtmy9MYZK5ukg+6D8mN+KbA8DqQ2jj+SIPNOX0Wm/BnyZufR4mTlZJu3Jmjq0gcnZqZ+W0wFyvZqRInQ+u/snk9g0fsJihlo2RrGJujKK01mzSSTMvsyRZJhNXKtUE/El/wDIXTLas1sHlHZq5RojK0DZodUg2Cdmk1s3N+oVMmzES0zRlZWywkaM2zB9WYWW0mYj2S3s1lL7BGlV2SUCudk+KxJIV5HsmbNUSIqaKuzMqMG0VfqpxjNf+GfCZPvwZJ+X/DPmeS/cPmQqZ0hYiw/2YtkUeqM3o63XLUJxs1cqMPJvTAlGcmY3liCck9UYTdkGTI/R9jZoU7JYw8mI+Nnjjd/uC5Jw8aX+WfK6NIT2a/lTS8fJqxK51Kwtv/wAbeYfOWkYhybQry+i6I/yL+xXN+WCHPijXx0aONRejSfRCyXRrJ0VY9p/4zL4yjb6Pm99g+LKU9snmn+yKbRjTM47tWTPRaRlCVGU9oigz6L+zMbEUSy2T4lZFDsY8fH+xk2pdB+ONoEL/T9jx5NSk/WQnDkfoMfISZ1n2F1y8kPk9BJwOzDgfv/AK3ujx14z+x9WQRY/V1EwX6N4IyWNJ9kmN/ZzrFbJIgsIxRIRIkaRZJQ1IIkI2ZlI0bImjPmRvRk0PR8+zC6JSK/Vo+Zq2ZMdM3rPZtmNmejH0d2voxOZE+jM+jRmtEK2w/9h2vYCh/UZ8E7+xmzk38I1Ek+DFnzZ1/xtpD1n5mPkyV/0SPk5uzGE7nEy49k80iUY+jFmCfw5k/wBk5GpP0+E6ZnWmZkNVfqY5o+L8P8oNkHxPw/z0atSsl/Fm/wBHifkS/rRf+OwsL4kfrRuPLgVQ8Kb9xGHjL9nY8fBIfVYM34+H9HB0e1yf4kb/APIkPJ8aMfZyePjROfIxf+8W14Z9/wAB4vDgBZcUZdDs+dgmv/wySpX7R4bDcWPGkFw/0DyJtppdHptfMl09M+bBpS69m0TdDyjzLG6WgmPYYv7A8zG9hPuk9fVBoPJN2CytWTYun9mT2lkeUy2bQVsFm9Esf9UYzoLgZg2syWzC2iyH2OLsjcPYE3sl9BPZLKIZ+WR0vUeoZqXyYswzSUT4pWYkwFhGFEC5g6XRhS+iCzoMhJT0fSRBFn02a2mmyWX2RPsxGZU5A5vyWj5nzdpIfyPhf6Pj4+/1Z9H//Z" alt="Logo Seleção &amp; Brasa" width="68" height="68" style="border-radius:50%;object-fit:cover;display:block;">
     </div>
     <h1 class="brand-name">Seleção <span>&</span> Brasa</h1>
     <p class="brand-sub">Boutique de Carnes Premium</p>
@@ -674,12 +664,14 @@
     </div>
   </section>
 
+
   <!-- MSG ADICIONAL -->
   <div class="extra-msg">
     <p>
       <strong>Prepare o churrasco!</strong><br>
       Em breve você poderá pedir seus cortes favoritos<br>diretamente pelo site.
     </p>
+
   </div>
 
   <!-- CONTATO -->
